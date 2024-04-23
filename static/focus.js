@@ -13,9 +13,9 @@ async function run() {
         sendRequest(`${API.analytics}?ogrn=${ogrns}`),
         sendRequest(`${API.buhForms}?ogrn=${ogrns}`)
     ]);
-    if (requisites === undefined || analytics === undefined || buh === undefined) {
+    if (requisites === undefined || analytics === undefined || buh === undefined)
         return;
-    }
+
     const orgsMap = reqsToMap(requisites);
     addInOrgsMap(orgsMap, analytics, "analytics");
     addInOrgsMap(orgsMap, buh, "buhForms");
@@ -27,9 +27,9 @@ run();
 function sendRequest(url) {
     return fetch(url)
         .then((response) => {
-            if (response.ok) {
+            if (response.ok)
                 return response.json();
-            }
+
             alert(`${response.status} ${response.statusText}`);
         });
 }
